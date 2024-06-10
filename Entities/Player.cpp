@@ -2,7 +2,7 @@
 
 namespace ms
 {
-	int Player::_score = 0;
+	int Player::_score = 1000;
 
 	Player::Player(GameDataRef& _data)
 		: Object(_data),
@@ -11,7 +11,7 @@ namespace ms
 		_player.setTexture(_data->assets.GetTexture("Player"));
 		
 		position = { (_data->window.getSize().x - _player.getGlobalBounds().width) / 2,
-			_data->window.getSize().y - _player_y_level };
+			_data->window.getSize().y - PLAYER_Y_LEVEL };
 
 		_player.setPosition(position.x, position.y);
 		_size.x = _player.getGlobalBounds().width;
@@ -45,13 +45,8 @@ namespace ms
 			_isAlive = true;
 		}
 		_lives--;
-		if (Player::_score - 1000 < 0)
-		{
-			Player::_score = 0;
-		}
-		else _score -= 1000;
 		position = { (_data->window.getSize().x - _player.getGlobalBounds().width) / 2,
-			_data->window.getSize().y - _player_y_level };
+			_data->window.getSize().y - PLAYER_Y_LEVEL };
 		_player.setPosition(position);
 	}
 

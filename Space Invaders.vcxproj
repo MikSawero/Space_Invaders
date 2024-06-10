@@ -74,6 +74,10 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>$(SolutionDir)\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)\lib;$(LibraryPath)</LibraryPath>
+    <AllProjectBMIsArePublic>false</AllProjectBMIsArePublic>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <AllProjectBMIsArePublic>true</AllProjectBMIsArePublic>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -111,6 +115,8 @@
       </PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)\include</AdditionalIncludeDirectories>
+      <BuildStlModules>false</BuildStlModules>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,6 +136,9 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)\include;$(SolutionDir)\GUI</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalModuleDependencies>$(SolutionDir)\Managers\FileManager.cpp</AdditionalModuleDependencies>
+      <DisableSpecificWarnings>
+      </DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -142,45 +151,49 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Entities\Enemy.cpp" />
+    <ClCompile Include="Entities\Object.cpp" />
+    <ClCompile Include="Entities\Player.cpp" />
     <ClCompile Include="Entities\Projectile.cpp" />
     <ClCompile Include="Entities\Shield.cpp" />
-    <ClCompile Include="Managers\EnemyManager.cpp" />
-    <ClCompile Include="Managers\AssetManager.cpp" />
+    <ClCompile Include="Managers\FileManager.cpp" />
     <ClCompile Include="GUI\Game.cpp" />
     <ClCompile Include="GUI\GameOverWindow.cpp" />
     <ClCompile Include="GUI\GameWindow.cpp" />
-    <ClCompile Include="Managers\InputManager.cpp" />
+    <ClCompile Include="GUI\Icon.cpp" />
+    <ClCompile Include="GUI\LeaderboardWindow.cpp" />
     <ClCompile Include="GUI\MainMenuWindow.cpp" />
-    <ClCompile Include="GUI\SettingsWindow.cpp" />
+    <ClCompile Include="GUI\SaveWindow.cpp" />
     <ClCompile Include="GUI\SplashWindow.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Managers\AssetManager.cpp" />
+    <ClCompile Include="Managers\EnemyManager.cpp" />
+    <ClCompile Include="Managers\InputManager.cpp" />
     <ClCompile Include="Managers\ProjectileManager.cpp" />
     <ClCompile Include="Managers\ShieldManager.cpp" />
     <ClCompile Include="Managers\WindowMachine.cpp" />
-    <ClCompile Include="GUI\Icon.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Entities\Object.cpp" />
-    <ClCompile Include="Entities\Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entities\Enemy.hpp" />
+    <ClInclude Include="Entities\Object.hpp" />
+    <ClInclude Include="Entities\Player.hpp" />
     <ClInclude Include="Entities\Projectile.hpp" />
     <ClInclude Include="Entities\Shield.hpp" />
-    <ClInclude Include="Managers\EnemyManager.hpp" />
-    <ClInclude Include="Managers\AssetManager.hpp" />
-    <ClInclude Include="include\DEFINITIONS.hpp" />
     <ClInclude Include="GUI\Game.hpp" />
     <ClInclude Include="GUI\GameOverWindow.hpp" />
     <ClInclude Include="GUI\GameWindow.hpp" />
-    <ClInclude Include="Managers\InputManager.hpp" />
+    <ClInclude Include="GUI\LeaderboardWindow.hpp" />
     <ClInclude Include="GUI\MainMenuWindow.hpp" />
-    <ClInclude Include="GUI\SettingsWindow.hpp" />
+    <ClInclude Include="GUI\SaveWindow.hpp" />
     <ClInclude Include="GUI\SplashWindow.hpp" />
     <ClInclude Include="GUI\Window.hpp" />
+    <ClInclude Include="include\DEFINITIONS.hpp" />
+    <ClInclude Include="Managers\AssetManager.hpp" />
+    <ClInclude Include="Managers\EnemyManager.hpp" />
+    <ClInclude Include="Managers\FileManager.hpp" />
+    <ClInclude Include="Managers\InputManager.hpp" />
     <ClInclude Include="Managers\ProjectileManager.hpp" />
     <ClInclude Include="Managers\ShieldManager.hpp" />
     <ClInclude Include="Managers\WindowMachine.hpp" />
-    <ClInclude Include="Entities\Object.hpp" />
-    <ClInclude Include="Entities\Player.hpp" />
     <ClInclude Include="Res\YellowEnemy.h" />
   </ItemGroup>
   <ItemGroup>
@@ -232,6 +245,11 @@
     <Image Include="Res\YellowEnemy.png" />
   </ItemGroup>
   <ItemGroup>
+    <Font Include="fonts\BigBlueTerm437NerdFont-Regular.ttf" />
+    <Font Include="fonts\BigBlueTermPlusNerdFont-Regular.ttf" />
+    <Font Include="fonts\CaskaydiaCoveNerdFont-Light.ttf" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="bin\openal32.dll" />
     <None Include="bin\sfml-audio-2.dll" />
     <None Include="bin\sfml-audio-d-2.dll" />
@@ -243,11 +261,42 @@
     <None Include="bin\sfml-system-d-2.dll" />
     <None Include="bin\sfml-window-2.dll" />
     <None Include="bin\sfml-window-d-2.dll" />
+    <None Include="x64\Release\openal32.dll" />
+    <None Include="x64\Release\sfml-audio-2.dll" />
+    <None Include="x64\Release\sfml-graphics-2.dll" />
+    <None Include="x64\Release\sfml-network-2.dll" />
+    <None Include="x64\Release\sfml-system-2.dll" />
+    <None Include="x64\Release\sfml-window-2.dll" />
+    <None Include="x64\Release\Space Invaders.exe" />
+    <None Include="x64\Release\Space Invaders.exe.recipe" />
+    <None Include="x64\Release\Space Invaders.iobj" />
+    <None Include="x64\Release\Space Invaders.ipdb" />
+    <None Include="x64\Release\Space Invaders.pdb" />
+    <None Include="x64\Release\vc143.pdb" />
   </ItemGroup>
   <ItemGroup>
-    <Font Include="fonts\BigBlueTerm437NerdFont-Regular.ttf" />
-    <Font Include="fonts\BigBlueTermPlusNerdFont-Regular.ttf" />
-    <Font Include="fonts\CaskaydiaCoveNerdFont-Light.ttf" />
+    <Object Include="x64\Release\AssetManager.obj" />
+    <Object Include="x64\Release\Enemy.obj" />
+    <Object Include="x64\Release\Game.obj" />
+    <Object Include="x64\Release\GameOverWindow.obj" />
+    <Object Include="x64\Release\GameWindow.obj" />
+    <Object Include="x64\Release\Icon.obj" />
+    <Object Include="x64\Release\InputManager.obj" />
+    <Object Include="x64\Release\main.obj" />
+    <Object Include="x64\Release\MainMenuWindow.obj" />
+    <Object Include="x64\Release\Object.obj" />
+    <Object Include="x64\Release\Player.obj" />
+    <Object Include="x64\Release\Projectile.obj" />
+    <Object Include="x64\Release\ProjectileManager.obj" />
+    <Object Include="x64\Release\Shield.obj" />
+    <Object Include="x64\Release\ShieldManager.obj" />
+    <Object Include="x64\Release\SplashWindow.obj" />
+    <Object Include="x64\Release\WindowMachine.obj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="x64\Release\Space Invaders.Build.CppClean.log" />
+    <Text Include="x64\Release\Space Invaders.log" />
+    <Text Include="x64\Release\Space Invaders.vcxproj.FileListAbsolute.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

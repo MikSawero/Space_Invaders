@@ -15,43 +15,43 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Managers\AssetManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GUI\Game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GUI\GameWindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Managers\InputManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GUI\MainMenuWindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GUI\SettingsWindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GUI\SplashWindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Managers\WindowMachine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Managers\EnemyManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Managers\InputManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Managers\ProjectileManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Managers\ShieldManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Managers\WindowMachine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="GUI\GameOverWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\GameWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GUI\Icon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Entities\Player.cpp">
+    <ClCompile Include="GUI\MainMenuWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\SplashWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Entities\Enemy.cpp">
@@ -60,39 +60,63 @@
     <ClCompile Include="Entities\Object.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Entities\Projectile.cpp">
+    <ClCompile Include="Entities\Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Managers\ProjectileManager.cpp">
+    <ClCompile Include="Entities\Projectile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Entities\Shield.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Managers\ShieldManager.cpp">
+    <ClCompile Include="GUI\SaveWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\LeaderboardWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Managers\FileManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Managers\AssetManager.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\DEFINITIONS.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GUI\Game.hpp">
+    <ClInclude Include="Res\YellowEnemy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GUI\GameWindow.hpp">
+    <ClInclude Include="Managers\AssetManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Managers\EnemyManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Managers\FileManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Managers\InputManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GUI\MainMenuWindow.hpp">
+    <ClInclude Include="Managers\ProjectileManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GUI\SettingsWindow.hpp">
+    <ClInclude Include="Managers\ShieldManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Managers\WindowMachine.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Game.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\GameOverWindow.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\GameWindow.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\MainMenuWindow.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GUI\SplashWindow.hpp">
@@ -101,37 +125,25 @@
     <ClInclude Include="GUI\Window.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Managers\WindowMachine.hpp">
+    <ClInclude Include="Entities\Enemy.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Managers\EnemyManager.hpp">
+    <ClInclude Include="Entities\Projectile.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GUI\GameOverWindow.hpp">
+    <ClInclude Include="Entities\Shield.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\SaveWindow.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\LeaderboardWindow.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Entities\Player.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Entities\Object.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Entities\Enemy.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Res\YellowEnemy.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Entities\Projectile.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Managers\ProjectileManager.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Entities\Shield.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Managers\ShieldManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -214,7 +226,12 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\sfml-window-d-2.dll" />
+    <Font Include="fonts\CaskaydiaCoveNerdFont-Light.ttf" />
+    <Font Include="fonts\BigBlueTerm437NerdFont-Regular.ttf" />
+    <Font Include="fonts\BigBlueTermPlusNerdFont-Regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\openal32.dll" />
     <None Include="bin\sfml-audio-2.dll" />
     <None Include="bin\sfml-audio-d-2.dll" />
     <None Include="bin\sfml-graphics-2.dll" />
@@ -224,11 +241,42 @@
     <None Include="bin\sfml-system-2.dll" />
     <None Include="bin\sfml-system-d-2.dll" />
     <None Include="bin\sfml-window-2.dll" />
-    <None Include="bin\openal32.dll" />
+    <None Include="bin\sfml-window-d-2.dll" />
+    <None Include="x64\Release\openal32.dll" />
+    <None Include="x64\Release\sfml-audio-2.dll" />
+    <None Include="x64\Release\sfml-graphics-2.dll" />
+    <None Include="x64\Release\sfml-network-2.dll" />
+    <None Include="x64\Release\sfml-system-2.dll" />
+    <None Include="x64\Release\sfml-window-2.dll" />
+    <None Include="x64\Release\Space Invaders.exe" />
+    <None Include="x64\Release\Space Invaders.exe.recipe" />
+    <None Include="x64\Release\Space Invaders.iobj" />
+    <None Include="x64\Release\Space Invaders.ipdb" />
+    <None Include="x64\Release\Space Invaders.pdb" />
+    <None Include="x64\Release\vc143.pdb" />
   </ItemGroup>
   <ItemGroup>
-    <Font Include="fonts\CaskaydiaCoveNerdFont-Light.ttf" />
-    <Font Include="fonts\BigBlueTerm437NerdFont-Regular.ttf" />
-    <Font Include="fonts\BigBlueTermPlusNerdFont-Regular.ttf" />
+    <Object Include="x64\Release\WindowMachine.obj" />
+    <Object Include="x64\Release\AssetManager.obj" />
+    <Object Include="x64\Release\Enemy.obj" />
+    <Object Include="x64\Release\Game.obj" />
+    <Object Include="x64\Release\GameOverWindow.obj" />
+    <Object Include="x64\Release\GameWindow.obj" />
+    <Object Include="x64\Release\Icon.obj" />
+    <Object Include="x64\Release\InputManager.obj" />
+    <Object Include="x64\Release\main.obj" />
+    <Object Include="x64\Release\MainMenuWindow.obj" />
+    <Object Include="x64\Release\Object.obj" />
+    <Object Include="x64\Release\Player.obj" />
+    <Object Include="x64\Release\Projectile.obj" />
+    <Object Include="x64\Release\ProjectileManager.obj" />
+    <Object Include="x64\Release\Shield.obj" />
+    <Object Include="x64\Release\ShieldManager.obj" />
+    <Object Include="x64\Release\SplashWindow.obj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="x64\Release\Space Invaders.Build.CppClean.log" />
+    <Text Include="x64\Release\Space Invaders.log" />
+    <Text Include="x64\Release\Space Invaders.vcxproj.FileListAbsolute.txt" />
   </ItemGroup>
 </Project>

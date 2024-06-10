@@ -38,6 +38,10 @@ namespace ms
 
 		std::vector<std::vector<Enemy*>> GetEnemies(); 
 
+		sf::Time GetShotDelay();
+
+		void InitEnemies();
+
 	private:
 
 		sf::Sprite template_enemy;
@@ -46,16 +50,15 @@ namespace ms
 		int enemy_col = 10;
 
 		std::vector<std::vector<Enemy*>> _enemies;
-		float _speed = 10;
+		float _speed;
 		GameDataRef _data;
 
 		sf::Clock _clock;
 		sf::Time _gapBetweenSteps;
+		sf::Time _shotDelay;
 
 		bool _movingRight;
 		bool _justMovedDown;
-
-		void InitEnemies();
 
 		void DrawEnemyColumn(std::vector<Enemy*>& enemy_row);
 	};

@@ -33,8 +33,6 @@ namespace ms
 		sf::Sprite _player;
 
 		bool _isAlive = true;
-		int _lives = 3;
-
-		float _player_y_level = 80.f;
+		int _lives = 2;
 	};
 }

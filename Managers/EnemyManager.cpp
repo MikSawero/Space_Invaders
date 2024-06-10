@@ -8,19 +8,17 @@
 namespace ms
 {
     EnemyManager::EnemyManager(GameDataRef& data)
-        : _gapBetweenSteps(sf::seconds(0.5f)),
+        : _gapBetweenSteps(sf::seconds(1.0f)),
+        _speed(10),
+        _shotDelay(sf::seconds(0.8f)),
         _data(data)
     {
-        if (!_data)
-        {
-            throw std::runtime_error("GameDataRef _data is null in EnemyManager constructor");
-        }
-
         InitEnemies();
     }
 
     void EnemyManager::InitEnemies()
     {
+        _enemies.clear();
         sf::Vector2f EnemyPos;
         template_enemy.setTexture(_data->assets.GetTexture("Enemy"));
         int GAP = 25;
@@ -35,12 +33,10 @@ namespace ms
                 EnemyPos.y = y * template_enemy.getGlobalBounds().height + (GAP * y) + template_enemy.getGlobalBounds().height * 2;
 
                 temp.push_back(new Enemy(EnemyPos, _data));
-                //std::cout << "Enemy Added at (" << EnemyPos.x << ", " << EnemyPos.y << ")" << std::endl;
             }
 
             _enemies.push_back(temp);
         }
-
     }
 
     void EnemyManager::MoveEnemies()
@@ -49,16 +45,11 @@ namespace ms
 
         if (_justMovedDown)
         {
-            // Reset the flag for moving down
             _justMovedDown = false;
-
-            // Determine horizontal move direction
             if (!_movingRight)
             {
                 moveDistance = -moveDistance;
             }
-
-            // Move all enemies horizontally
             for (auto& enemy_row : _enemies)
             {
                 for (auto& enemy : enemy_row)
@@ -74,7 +65,6 @@ namespace ms
         {
             bool needToMoveDown = false;
 
-            // Check if any enemy hits the edge of the screen
             for (auto& enemy_row : _enemies)
             {
                 for (auto& enemy : enemy_row)
@@ -98,7 +88,6 @@ namespace ms
 
             if (needToMoveDown)
             {
-                // Move all enemies downwards
                 for (auto& enemy_row : _enemies)
                 {
                     for (auto& enemy : enemy_row)
@@ -113,7 +102,6 @@ namespace ms
             }
             else
             {
-                // Move all enemies horizontally
                 if (!_movingRight)
                 {
                     moveDistance = -moveDistance;
@@ -135,12 +123,6 @@ namespace ms
 
     void EnemyManager::DrawEnemyRow()
     {
-        if (_enemies.empty())
-        {
-            std::cout << "_enemies is empty." << std::endl;
-            return;
-        }
-
         for (size_t i = 0; i < _enemies.size(); ++i)
         {
             auto& enemy_col = _enemies[i];
@@ -152,22 +134,11 @@ namespace ms
 
     void EnemyManager::DrawEnemyColumn(std::vector<Enemy*>& enemy_rows)
     {
-        if (enemy_rows.empty()) {
-            std::cerr << "enemy_row is empty." << std::endl;
-            return;
-        }
-
         for (auto& enemy : enemy_rows)
         {
             if (enemy != nullptr && enemy->IsAlive())
             {
-                try {
-                    enemy->Draw();
-                }
-                catch (const std::runtime_error& e) {
-                    std::cerr << "Failed to draw Enemy: " << e.what() << std::endl;
-                    throw;
-                }
+                enemy->Draw();
             }
         }
     }
@@ -184,7 +155,6 @@ namespace ms
     Enemy* EnemyManager::GetRandomBottomEnemy()
     {
         int randcol = GetRandomColumn();
-        std::cout << _enemies.at(randcol).back();
         return _enemies.at(GetRandomColumn()).back();
     }
 
@@ -242,9 +212,22 @@ namespace ms
         return _enemies;
     }
 
+    sf::Time EnemyManager::GetShotDelay()
+    {
+        return _shotDelay;
+    }
+
     void EnemyManager::RemoveDeadEnemies()
     {
-        auto isEnemyDead = [](Enemy* enemy) { return enemy == nullptr || !enemy->IsAlive(); };
+        auto isEnemyDead = [this](Enemy* enemy) { 
+            if (!enemy->IsAlive() || enemy == nullptr)
+            {
+                _gapBetweenSteps -= sf::seconds(0.01f);
+                _shotDelay -= sf::seconds(0.01f);
+                return true;
+            }
+            return false;
+            };
 
         for (auto& row : _enemies)
         {

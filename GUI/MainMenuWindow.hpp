@@ -1,8 +1,14 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+
+#include <iostream>
+
 #include "Window.hpp"
 #include "Game.hpp"
+#include "GameWindow.hpp"
+#include "LeaderboardWindow.hpp"
+#include "../Managers/FileManager.hpp"
 
 
 namespace ms
@@ -23,9 +29,14 @@ namespace ms
 
 		sf::Sprite _background;
 		sf::Sprite _title;
-		sf::Sprite _playButton;
-		//sf::Sprite _settingsButton;
-		sf::Sprite _exitButton;
+
+		sf::Text _textPlay;
+		sf::Text _textLeaderboard;
+		sf::Text _textExit;
+
+		bool _chosenPlay;
+		bool _chosenExit;
+		bool _chosenLeaderboard;
 
 	};
 }

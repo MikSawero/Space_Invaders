@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include "Window.hpp"
 #include "Game.hpp"
+#include "GameOverWindow.hpp"
 #include "../Managers/EnemyManager.hpp"
 #include "../Entities/Player.hpp"
 #include "../Entities/Projectile.hpp"
@@ -34,9 +35,10 @@ namespace ms
 		sf::Texture _backgroundTexture;
 		sf::Sprite _background;
 		sf::Text _textScore;
+		sf::Text _textLives;
 
 		sf::Clock _shotDelay;
-		sf::Clock _enemyShotDelay;
+		sf::Clock _clock;
 
 		EnemyManager* enemyManager;
 		Player* player;

@@ -3,6 +3,12 @@
 #include <SFML/Graphics.hpp>
 #include "Window.hpp"
 #include "Game.hpp"
+#include <thread>
+#include "DEFINITIONS.hpp"
+#include "MainMenuWindow.hpp"
+#include <mutex>
+#include <sstream>
+#include <iostream>
 
 
 namespace ms
@@ -14,6 +20,7 @@ namespace ms
 		
 		void Init();
 		
+		void LoadTextures();
 		void HandleInput();
 		void Update(float dt);
 		void Draw(float dt);

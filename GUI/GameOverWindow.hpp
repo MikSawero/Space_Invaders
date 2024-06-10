@@ -3,6 +3,12 @@
 #include <SFML/Graphics.hpp>
 #include "Window.hpp"
 #include "Game.hpp"
+#include "MainMenuWindow.hpp"
+#include "DEFINITIONS.hpp"
+#include <sstream>
+#include <iostream>
+#include "../Entities/Player.hpp"
+#include "SaveWindow.hpp"
 
 namespace ms
 {
@@ -23,8 +29,15 @@ namespace ms
 		sf::Clock _clock;
 
 		sf::Sprite _background;
-		sf::Sprite _label;
+		sf::Sprite _title;
 
+		sf::Text _textScore;
+		sf::Text _textTryAgain;
+
+		sf::Text _textYes;
+		sf::Text _textNo;
+		bool _chosenNo;
+		bool _chosenYes;
 	};
 }
 
